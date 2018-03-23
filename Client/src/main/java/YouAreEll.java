@@ -1,3 +1,14 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.org.apache.bcel.internal.generic.GETFIELD;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.json.JSONString;
+
 /**
  * @GOOD&BAD
  * Deserialization is performed by specialized libraries like Jackson
@@ -13,16 +24,19 @@
  * 10.)Very High latency
  */
 
-
 public class YouAreEll {
-
     YouAreEll() {
     }
 
     public static void main(String[] args) {
+        ObjectMapper mapper = new ObjectMapper();
         YouAreEll urlhandler = new YouAreEll();
+
         System.out.println(urlhandler.MakeURLCall("/ids", "GET", ""));
         System.out.println(urlhandler.MakeURLCall("/messages", "GET", ""));
+        //StringEntity requestEntity = new StringEntity(JSONString,ContentType.APPLICATION_JSON);
+        //HttpPost postMethod = new HttpPost("http://zipcode.rocks:8085");
+        //postMethod.setEntity(requestEntity);
     }
 
     public String get_ids() {
@@ -34,6 +48,6 @@ public class YouAreEll {
     }
 
     public String MakeURLCall(String mainurl, String method, String jpayload) {
-        return "nada";
+        return "wtf";
+        }
     }
-}
